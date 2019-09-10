@@ -15,5 +15,10 @@
     "minimum-stability": "stable",
     "require": {
         "illuminate/database": "^6.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
     }
 }
