@@ -56,7 +56,7 @@ class SchemaChangeTest extends TestCase {
         $exception = new \Exception( $this->testStrings[ $testStringType ][ 'string' ], $this->testStrings[ $testStringType ][ 'code' ], NULL );
         $sql       = "SOME * SQL";
         $bindings  = [ 'foo' => 'bar' ];
-        return new QueryException( $sql, $bindings, $exception );
+        return new QueryException( null, $sql, $bindings, $exception );
     }
 
 
