@@ -56,6 +56,11 @@ class SchemaChangeTest extends TestCase {
         $exception = new \Exception( $this->testStrings[ $testStringType ][ 'string' ], $this->testStrings[ $testStringType ][ 'code' ], NULL );
         $sql       = "SOME * SQL";
         $bindings  = [ 'foo' => 'bar' ];
+
+        if ( (new \ReflectionMethod( QueryException::class, '__construct' ))->getNumberOfParameters() >= 4 ) {
+            return new QueryException( 'test', $sql, $bindings, $exception );
+        }
+
         return new QueryException( $sql, $bindings, $exception );
     }
 
